@@ -1,0 +1,22 @@
+<h1><%= @fetch_product.name %></h1>
+
+<div>
+<%= @fetch_product.price %>
+</div>
+
+<div>
+<%= @fetch_product.description %>
+</div>
+
+<div>
+<%= @fetch_product.stock %>
+</div>
+
+<div>
+<img src="<%= @fetch_product.image %>">
+</div>
+
+
+<%= link_to "delete", "/products/#{@fetch_product.id}", method: :delete %>
+<%= link_to "edit", "/products/#{@fetch_product.id}/edit", method: :get %>
+
