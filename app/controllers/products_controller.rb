@@ -1,9 +1,29 @@
 class ProductsController < ApplicationController
+  
   def index
-    @index = "active"
+    @showall = params[:showall]
     
-    @allproducts = Product.all
+    @index = "active"
+    @discountproducts = []
+    
+    if @showall == "no"
+      
+      Product.all.each do |product|
+        
+        if product.sale_message == "This item is on sale"
+          @discountproducts << product
+        end
 
+      end
+      
+      @allproducts = @discountproducts
+
+    else
+
+      @allproducts = Product.all
+
+    end
+    
   end
   
   def new
