@@ -1,13 +1,18 @@
 class ProductsController < ApplicationController
   def index
+    @index = "active"
+    
     @allproducts = Product.all
 
   end
   
   def new
+    @create = "active"
+    
   end
 
   def create
+    
     Product.create(name: params[:name], price: params[:price], description: params[:description], image: params[:image], stock: params[:stock])
     flash[:success] ="Product Created"
     redirect_to "/products"
