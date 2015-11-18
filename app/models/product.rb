@@ -20,6 +20,17 @@ class Product < ActiveRecord::Base
     #return Product.where("price < ?", 2)
   end
 
+  def image?
+    if image == nil
+      return "http://www2.psd100.com/wp-content/uploads/2013/03/white-product-box-psd-20130309.jpg"
+    elsif image == ""
+      return "http://www2.psd100.com/wp-content/uploads/2013/03/white-product-box-psd-20130309.jpg"
+    else
+      return image
+    end
+  end
+
+
 
 
 

@@ -5,7 +5,8 @@
 <td><%= product.price %></td>
 <td><%= product.description %></td>
 <td><%= product.stock %></td>
-<td><img src="<%= product.image %>"></td>
+<td><%= product.rating %></td>
+<td><img src="<%= product.image? %>"></td>
 </tr>
 <% end %>
 </table>

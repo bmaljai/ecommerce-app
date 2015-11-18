@@ -1,19 +1,20 @@
 <h1><%= @fetch_product.name %></h1>
-
 <div>
-<%= @fetch_product.price %>
+<img src="<%= @fetch_product.image? %>">
 </div>
-
 <div>
+<p>
 <%= @fetch_product.sale_message %>
+</p></div>
+<div>
+<p>Price: <%= @fetch_product.price %></p>
+</div>
+<div>
+<p>Tax amount: <%= number_to_currency(@fetch_product.tax) %></p>
 </div>
 
 <div>
-<%= @fetch_product.tax %>
-</div>
-
-<div>
-<%= @fetch_product.total %>
+<p>Total price: <%= @fetch_product.total %></p>
 </div>
 
 <div>
@@ -21,12 +22,13 @@
 </div>
 
 <div>
-<%= @fetch_product.stock %>
+<p>In stock: <%= @fetch_product.stock %></p>
+</div>
+<div>
+<p>Rating: <%= @fetch_product.rating %></p>
 </div>
 
-<div>
-<img src="<%= @fetch_product.image %>">
-</div>
+
 
 
 <%= link_to "delete", "/products/#{@fetch_product.id}", method: :delete %>
