@@ -23,20 +23,19 @@ class Product < ActiveRecord::Base
   end
 
   def image?
-    if image == nil
+    if images == nil
       return "http://www2.psd100.com/wp-content/uploads/2013/03/white-product-box-psd-20130309.jpg"
-    elsif image == ""
+    elsif images == ""
       return "http://www2.psd100.com/wp-content/uploads/2013/03/white-product-box-psd-20130309.jpg"
     else
-      return image
+      return images
     end
   end
 
-  
-
-
-
-
+  # def first_image
+  #   return Image.find_by(product_id: id).url
+    
+  # end
 
 
 end

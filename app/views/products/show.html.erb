@@ -1,7 +1,9 @@
 <h1><%= @fetch_product.name %></h1>
+<% @fetch_product.images.each do |image| %>
 <div>
-<img src="<%= @fetch_product.image? %>">
+<img src="<%= image.url %>">
 </div>
+<% end %>
 <div>
 <p>
 <%= @fetch_product.sale_message %>

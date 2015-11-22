@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   def index
     @search = Product.find_by(name: params[:search])
     @showall = params[:showall]
+    @images = Image.all
     
     @index = "active"
     @discountproducts = []
@@ -44,6 +45,7 @@ class ProductsController < ApplicationController
   def show
     @fetch_product = Product.find_by(id: params[:id])
     
+
   end
 
   def edit
