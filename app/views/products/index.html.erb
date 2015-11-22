@@ -14,5 +14,18 @@
 <%= link_to "create new", "/products/new", method: :get %>
 <%= link_to "discount only", "/products/?showall=no", method: :get %>
 <%= link_to "showall", "/products", method: :get %>
+<%= link_to "price ascending", "/products/?lowtohigh=true", method: :get %>
+<%= link_to "price descending", "/products/?hightolow=true", method: :get %>
+<%= link_to "random product", "/products/#{rand(1 + Product.count)}", method: :get %>
+
+ <%= form_tag "/products/search", method: :get do %>
+<div>
+  <%= label_tag :search, "Search for product" %>
+  <%= text_field_tag :search %>
+</div>
+<div>
+  <%= submit_tag "find" %>
+</div>
+<% end %>
 
 <!-- try link_to instead of a href -->

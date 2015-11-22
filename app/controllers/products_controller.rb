@@ -1,29 +1,31 @@
 class ProductsController < ApplicationController
   
   def index
+    @search = Product.find_by(name: params[:search])
     @showall = params[:showall]
     
     @index = "active"
     @discountproducts = []
     
     if @showall == "no"
-      
       Product.all.each do |product|
-        
         if product.sale_message == "This item is on sale"
           @discountproducts << product
         end
-
       end
-      
       @allproducts = @discountproducts
-
     else
-
       @allproducts = Product.all
-
     end
     
+
+    if params[:lowtohigh] == 'true'
+      @allproducts = Product.order(price: :asc)
+    end
+    if params[:hightolow] == 'true'
+      @allproducts = Product.order(price: :desc)
+    end
+
   end
   
   def new
@@ -62,6 +64,11 @@ class ProductsController < ApplicationController
     flash[:warning] ="Product Deleted"
     redirect_to "/products"
   
+  end
+
+  def search
+    @search = Product.find_by(name: params[:search])
+    redirect_to "/products/#{@search.id}"
   end
 
 
