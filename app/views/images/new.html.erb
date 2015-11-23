@@ -1,24 +1,17 @@
 <%= form_tag '/products', method: :post do %>
 <div>
-  <%= label_tag :name, "name" %>
-  <%= text_field_tag :name %>
+  <%= label_tag :url, "url" %>
+  <%= text_field_tag :url %>
 </div>
 <div>
-  <%= label_tag :price, "price" %>
-  <%= text_field_tag :price %>
+  <%= label_tag :name, "name" %>
+  <%= text_field_tag :name %>
 </div>
 <div>
   <%= label_tag :description, "description" %>
   <%= text_area_tag :description %>
 </div>
-<div>
-  <%= label_tag :stock, "stock" %>
-  <%= text_field_tag :stock %>
-</div>
-<div>
-  <%= label_tag :rating, "rating" %>
-  <%= text_field_tag :rating %>
-</div>
+
 
 <div>
 <label class="checkbox-inline">
