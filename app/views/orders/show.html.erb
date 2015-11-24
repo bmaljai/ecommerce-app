@@ -1,0 +1,23 @@
+<h1><%= @current_order.product.name %></h1>
+<h2><%= @current_order.quantity %></h2>
+<h2><%= @current_order.user.email %></h2>
+<h2><%= @current_order.created_at %></h2>
+<div>
+Subtotal: <%= number_to_currency(@current_order.subtotal) %>
+</div>
+<div>
+Tax amount: <%= number_to_currency(@current_order.tax) %>
+</div>
+<div>
+Total price: <%= number_to_currency(@current_order.total) %>
+</div>
+
+
+<%= form_tag '/products', method: :post do %>
+<span>
+  <%= submit_tag "Buy Now" %>
+</span>
+<% end %>
+
+
+
