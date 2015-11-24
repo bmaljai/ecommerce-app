@@ -1,4 +1,5 @@
 <h1><%= @fetch_product.name %></h1>
+<h2><%= @fetch_product.user.email %></h2>
 <% @fetch_product.images.each do |image| %>
 <div>
 <img src="<%= image.url %>">
@@ -34,6 +35,16 @@
 <p>Rating: <%= @fetch_product.rating %></p>
 </div>
 
+
+<%= form_tag '/products', method: :post do %>
+<span>
+  <%= label_tag :quantity, "quantity" %>
+  <%= text_field_tag :quantity %>
+</span>
+<span>
+  <%= submit_tag "Buy Now" %>
+</span>
+<% end %>
 
 
 

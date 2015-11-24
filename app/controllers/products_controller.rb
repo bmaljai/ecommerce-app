@@ -35,8 +35,12 @@ class ProductsController < ApplicationController
   end
 
   def create
+    Supplier.create(name: params[:supplier])
+    @supplier_id = Supplier.last.id
     
-    Product.create(name: params[:name], price: params[:price], description: params[:description], image: params[:image], stock: params[:stock], rating: params[:rating])
+    Product.create(name: params[:name], price: params[:price], description: params[:description], stock: params[:stock], rating: params[:rating], supplier_id: @supplier_id, user_id: current_user.id)
+    Image.create(name: "default", url: "https://git.reviewboard.kde.org/media/uploaded/files/2015/07/18/a70d8ab6-1bbf-4dcc-b11f-524c2f56b14a__picture_default_cover.jpg", product_id: Product.last.id)
+
     flash[:success] ="Product Created"
     redirect_to "/products"
 
@@ -54,6 +58,7 @@ class ProductsController < ApplicationController
 
   def update
     Product.find_by(id: params[:id]).update(id: params[:id], name: params[:name], price: params[:price], description: params[:description], image: params[:image], stock: params[:stock], rating: params[:rating])
+
     flash[:Warning] ="Product Updated"
     redirect_to "/products"
 

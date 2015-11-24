@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
   end
 
   def create
+    
   
 
   end
