@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
     @tax = @tax_quant * @quantity
     @total = @total_quant * @quantity
 
+    #@total = @subtotal + @tax
+    #order = Order.create
     Order.create(user_id: current_user.id, product_id: params[:product_id], quantity: params[:quantity], subtotal: @subtotal, tax: @tax, total: @total)
     
     
@@ -20,6 +22,7 @@ class OrdersController < ApplicationController
 
     flash[:success] ="Product Ordered"
     redirect_to "/orders/#{Order.last.id}"
+    # /orders/#{order.id}
   end
 
   def show
