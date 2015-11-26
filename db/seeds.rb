@@ -1,7 +1,3 @@
-User.create!([
-  {email: "bmaljai@gmail.com", encrypted_password: "$2a$10$enP0.XaKc9ITTX9eSawMAOOukhBGNW0oC7KrUEBR2uYAmhHcCSVfW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2015-11-22 23:46:29", last_sign_in_at: "2015-11-22 23:31:52", current_sign_in_ip: "::1", last_sign_in_ip: "::1"},
-  {email: "bejan.maljai@gmail.com", encrypted_password: "$2a$10$yODH3cm2VWewot3oaUfccuJgNAQR98r/Ymg9vODc2EV//sh7677ym", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-11-23 00:48:44", last_sign_in_at: "2015-11-23 00:48:44", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
-])
 Image.create!([
   {url: "http://www.motus.com/wp-content/themes/motus/images/default.jpg", name: "default", description: "default image to display", dimensions: "500x500", size: 1000, product_id: 1},
   {url: "http://www.motus.com/wp-content/themes/motus/images/default.jpg", name: "default", description: "default image to display", dimensions: "500x500", size: 1000, product_id: 2},
