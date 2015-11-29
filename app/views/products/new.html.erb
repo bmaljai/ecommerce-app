@@ -1,19 +1,26 @@
 <%= form_tag '/products', method: :post do %>
+<ul>
+  <% if @new_product && @new_product.errors.any? %>
+    <% @new_product.errors.full_messages.each do |message| %>
+      <li class = "bad-entry"><%= message %></li>
+    <% end %>
+  <% end %>
+</ul>
 <div>
   <%= label_tag :name, "name" %>
-  <%= text_field_tag :name %>
+  <%= text_field_tag :name, @new_product.name %>
 </div>
 <div>
   <%= label_tag :price, "price" %>
-  <%= text_field_tag :price %>
+  <%= text_field_tag :price, @new_product.price %>
 </div>
 <div>
   <%= label_tag :description, "description" %>
-  <%= text_area_tag :description %>
+  <%= text_area_tag :description, @new_product.description %>
 </div>
 <div>
   <%= label_tag :stock, "stock" %>
-  <%= text_field_tag :stock %>
+  <%= text_field_tag :stock, "IS THIS IN STOCK?" %>
 </div>
 <div>
   <%= label_tag :supplier, "supplier" %>

@@ -4,6 +4,8 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :orders
 
+  validates :name, :price, :stock, presence: true
+
   
   def sale_message
     if price.to_i < 2
