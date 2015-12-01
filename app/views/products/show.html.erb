@@ -1,5 +1,8 @@
 <h1><%= @fetch_product.name %></h1>
 <h2><%= @fetch_product.user.email %></h2>
+<% @fetch_product.categories.each do |category| %>
+<h2><%= link_to category.name.capitalize, "products?category=#{category.name}"%></h2>
+<% end %>
 <% @fetch_product.images.each do |image| %>
 <div>
 <img src="<%= image.url %>">

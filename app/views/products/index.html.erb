@@ -1,6 +1,10 @@
 <%= link_to "sign in", "/users/sign_in", method: :get %>
 <%= link_to "sign out", "/users/sign_out", method: :delete %>
 <%= link_to "sign up", "/users/sign_up", method: :get %>
+<% @categories.each do |category
+  |%>
+  <p><%= link_to category.name.capitalize, "products?category=#{category.name}"%></p>
+<%end%>
 <table>
 <% @allproducts.each do |product| %>
 <tr>

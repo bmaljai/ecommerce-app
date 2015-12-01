@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
     
     @index = "active"
     @discountproducts = []
+
+    @categories = Category.all
     
     if @showall == "no"
       Product.all.each do |product|
@@ -26,6 +28,12 @@ class ProductsController < ApplicationController
     if params[:hightolow] == 'true'
       @allproducts = Product.order(price: :desc)
     end
+
+    if params[:category]
+      @allproducts = Category.find_by(name: params[:category]).products
+    end
+
+
 
   end
   
