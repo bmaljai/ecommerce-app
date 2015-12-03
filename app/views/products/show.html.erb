@@ -40,18 +40,18 @@
 
 
 
-<%= form_tag '/orders', method: :post do %>
-<%= hidden_field_tag :product_id, @fetch_product.id %>
-<%= hidden_field_tag :subtotal_mult, @fetch_product.price %>
-<%= hidden_field_tag :tax_mult, @fetch_product.tax  %>
-<%= hidden_field_tag :total_mult, @fetch_product.total  %>
-<span>
-  <%= label_tag :quantity, "quantity" %>
-  <%= text_field_tag :quantity %>
-</span>
-<span>
-  <%= submit_tag "Buy Now" %>
-</span>
+<!--   <%= hidden_field_tag :subtotal_mult, @fetch_product.price %>
+  <%= hidden_field_tag :tax_mult, @fetch_product.tax  %>
+  <%= hidden_field_tag :total_mult, @fetch_product.total  %> -->
+<%= form_tag '/carted_products', method: :post do %>
+  <%= hidden_field_tag :product_id, @fetch_product.id %>
+  <span>
+    <%= label_tag :quantity, "quantity" %>
+    <%= text_field_tag :quantity %>
+  </span>
+  <span>
+    <%= submit_tag "Add to Cart" %>
+  </span>
 <% end %>
 
 

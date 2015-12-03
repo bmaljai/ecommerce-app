@@ -1,0 +1,20 @@
+<% @user_cart.each do |carted_product| %>
+<div>
+<span><%= carted_product.product.name %></span>
+<span><%= carted_product.product.price %></span>
+<span><%= carted_product.quantity %></span>
+
+<span><%= link_to "remove", "/carted_products/#{carted_product.id}", method: :delete %>
+</span>
+<% end %>
+
+</div>
+<%= form_tag '/orders', method: :post do %>
+
+  <span>
+    <%= submit_tag "Buy Now" %>
+  </span>
+
+
+<% end %>
+
