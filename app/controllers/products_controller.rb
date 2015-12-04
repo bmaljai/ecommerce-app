@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-  
+  # before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_admin!, only: [:new, :create, :update, :destroy]
+
+
   def index
     @search = Product.find_by(name: params[:search])
     @showall = params[:showall]
